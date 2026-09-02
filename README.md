@@ -1,6 +1,6 @@
-# 🍕 Mamma Mia
+# 🍕 La Farina
 
-O **Mamma Mia** é um sistema de gerenciamento e monitoramento de pedidos em tempo real. Desenvolvido em **Vue 3**, o ecossistema conecta uma interface de usuário altamente responsiva a uma API em nuvem, oferecendo um fluxo de navegação fluido, validações estritas de dados e uma identidade visual premium.
+A **La Farina** é um sistema de gerenciamento e monitoramento de pedidos em tempo real. Desenvolvido em **Vue 3**, o ecossistema conecta uma interface de usuário altamente responsiva a uma API em nuvem, oferecendo um fluxo de navegação fluido, validações estritas de dados e uma identidade visual premium.
 
 ---
 
