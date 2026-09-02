@@ -69,4 +69,4 @@ A aplicação conta com um sistema modular de notificações integradas no compo
 └── package.json           # Dependências e scripts de automação do projeto
 ```
 ## Autoria e Contribuição
-Desenvolvido por Maria Clara Bertin.
+Desenvolvido por Maria Clara Bertin Vieira Ferreira, Marco Antonio de Melo Peixoto, Heber Americo Macedo, Thaynara Lima Soares Sousa.
