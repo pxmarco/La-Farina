@@ -1,41 +1,118 @@
-# La Farina
+# T-Pizza Artesanal
 
-Aplicação de pedidos para pizzaria, desenvolvida com Vue.js e focada em uma experiência simples, rápida e visualmente elegante.
+Projeto final de Desenvolvimento Web com Vue 3, evoluido a partir da base estrutural do sistema T-Burguer usado em sala de aula.
 
-## Status da versão
+## Visao Geral
 
-Este lançamento inicial foca em 3 funcionalidades principais, que já estão disponíveis e funcionando no produto atual. Ao longo do tempo, novas funcionalidades serão adicionadas conforme o crescimento do negócio.
+O sistema foi customizado para o segmento de pizzaria artesanal. A identidade visual, textos, imagens, campos de formulario, dados da API e regras de pedido foram atualizados para representar a marca **T-Pizza Artesanal**.
 
-## Funcionalidades atuais
+Tecnologias utilizadas:
 
-### 1. Catálogo de pizzas
-O cliente pode visualizar as pizzas disponíveis com imagem, nome, descrição e valor, em uma interface organizada e visualmente atrativa.
-
-### 2. Criação de pedido
-O usuário escolhe a pizza, define o nome do cliente, seleciona o tamanho e adiciona opcionais e bebidas antes de confirmar o pedido.
-
-### 3. Gestão de pedidos
-A equipe pode acompanhar os pedidos em andamento, atualizar o status e remover registros quando necessário.
-
-## Tecnologias
-
-- Vue.js
+- Vue 3
 - Vue Router
-- JavaScript
 - JSON Server
+- GitHub Pages
+- Render
 
-## Como executar
+Principais alteracoes realizadas:
 
-1. Instale as dependências:
-   npm install
+- Nome e identidade visual substituidos de T-Burguer para T-Pizza Artesanal.
+- Cardapio adaptado para pizzas, com imagens, descricoes e precos do novo segmento.
+- Campo "Ponto da carne" removido e substituido por "Tamanho da pizza".
+- Complementos de hamburguer substituidos por sabores, bordas recheadas e bebidas.
+- Listagem de pedidos adaptada para exibir cliente, pizza, tamanho, sabores, borda, bebidas e status.
 
-2. Inicie o servidor de desenvolvimento:
-   npm run serve
+Exemplo da regra de negocio no componente de pedido:
 
-3. Caso queira simular o banco local:
-   npm run bancojson
+```js
+if (this.listaSaboresSelecionados.length > 2) {
+  this.exibirAlerta("aviso", "A pizza meio-a-meio permite no maximo 2 sabores.");
+  return false;
+}
+```
 
-## Observação
+## Solucao Tecnica dos Alertas
 
-Este é um primeiro momento da plataforma. As 3 funcionalidades acima representam a base funcional do sistema, e novas entregas serão adicionadas futuramente para ampliar a operação da La Farina.
+Foi criado o componente `AlertaComponent.vue`, reutilizado no cadastro e na listagem de pedidos. Ele recebe duas props: `tipo` e `mensagem`. A partir do tipo, o componente aplica automaticamente cor e icone semantico.
 
+Padrao usado:
+
+- `erro`: vermelho para campos obrigatorios e acoes invalidas.
+- `aviso`: laranja para alertas importantes, como limite de dois sabores.
+- `info`: azul para informacoes contextuais.
+- `sucesso`: verde para cadastro, atualizacao e exclusao de pedidos.
+
+Trecho da chamada do alerta:
+
+```vue
+<alerta-component-vue :tipo="alerta.tipo" :mensagem="alerta.mensagem" />
+```
+
+Trecho da validacao:
+
+```js
+if (!this.nomeCliente.trim()) {
+  this.exibirAlerta("erro", "Informe o nome do cliente para continuar.");
+  return false;
+}
+```
+
+## UX e Fluxo de Pedidos
+
+Ao confirmar um pedido valido, o sistema exibe alerta de sucesso e navega automaticamente para a tela de monitoramento:
+
+```js
+this.exibirAlerta("sucesso", "Pedido cadastrado com sucesso! Abrindo a tela de monitoramento...");
+
+setTimeout(() => {
+  this.$router.push("/pedidos");
+}, 1200);
+```
+
+A tela de pedidos consulta a API no `mounted()` e exibe a lista atualizada. Na exclusao, a interface remove o pedido imediatamente com `filter`, garantindo re-renderizacao visual sem precisar recarregar a pagina.
+
+```js
+this.listaPedidosRealizados = this.listaPedidosRealizados.filter(
+  (pedido) => pedido.id !== idPedido
+);
+```
+
+## Links do Projeto
+
+- API JSON Server: [https://api-tpizza-artesanal.onrender.com](https://api-tpizza-artesanal.onrender.com)
+- Endpoint do cardapio: [https://api-tpizza-artesanal.onrender.com/menu](https://api-tpizza-artesanal.onrender.com/menu)
+- Endpoint dos pedidos: [https://api-tpizza-artesanal.onrender.com/pedidos](https://api-tpizza-artesanal.onrender.com/pedidos)
+- Producao GitHub Pages: [https://hebermacedo.github.io/tpizza-artesanal/](https://hebermacedo.github.io/tpizza-artesanal/)
+- Repositorio do front-end: [https://github.com/HeberMacedo/tpizza-artesanal](https://github.com/HeberMacedo/tpizza-artesanal)
+- Repositorio do banco-json: [https://github.com/HeberMacedo/banco-json](https://github.com/HeberMacedo/banco-json)
+
+## Como executar localmente
+
+Instale as dependencias:
+
+```bash
+npm install
+```
+
+Execute o JSON Server:
+
+```bash
+npm run bancojson
+```
+
+Em outro terminal, execute o Vue:
+
+```bash
+npm run serve
+```
+
+## Deploy
+
+O projeto possui workflow em `.github/workflows/pages.yml` para:
+
+- instalar dependencias;
+- gerar build com `npm run build`;
+- validar pull requests;
+- publicar automaticamente no GitHub Pages quando houver push na branch `main`.
+
+O banco JSON possui estrutura separada na pasta `banco-json`, pronta para ser enviada para um segundo repositorio e publicada como JSON Server.

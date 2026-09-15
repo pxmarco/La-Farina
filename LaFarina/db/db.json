@@ -1,34 +1,60 @@
 {
-  "tipos_tamanhos": [
+  "usuarios": [
     {
       "id": 1,
-      "descricao": "Brotinho"
+      "nome": "Administrador",
+      "email": "admin@tpizza.com",
+      "senha": "admin123",
+      "tipo": "admin",
+      "criadoEm": "2026-09-15T17:00:00-03:00"
     },
     {
       "id": 2,
-      "descricao": "Média"
+      "nome": "Marina Souza",
+      "email": "marina@teste.com",
+      "senha": "123456",
+      "tipo": "usuario",
+      "criadoEm": "2026-09-15T17:00:00-03:00"
+    },
+    {
+      "nome": "Heber Macedo",
+      "email": "heberamerico87@gmail.com",
+      "senha": "Macedo@1234",
+      "tipo": "usuario",
+      "criadoEm": "2026-09-15T20:43:53.857Z",
+      "id": 3
+    }
+  ],
+  "tamanhos": [
+    {
+      "id": 1,
+      "descricao": "Pequena - 4 fatias"
+    },
+    {
+      "id": 2,
+      "descricao": "Media - 6 fatias"
     },
     {
       "id": 3,
-      "descricao": "Grande"
+      "descricao": "Grande - 8 fatias"
     },
     {
       "id": 4,
-      "descricao": "Gigante"
+      "descricao": "Familia - 12 fatias"
     }
   ],
   "status_pedido": [
     {
       "id": 1,
-      "descricao": "Pedido em espera"
+      "descricao": "Pedido recebido"
     },
     {
       "id": 2,
-      "descricao": "No forno (Em produção)"
+      "descricao": "Em preparo"
     },
     {
       "id": 3,
-      "descricao": "A caminho (Delivery)"
+      "descricao": "Saiu para entrega"
     },
     {
       "id": 4,
@@ -40,129 +66,123 @@
     },
     {
       "id": 6,
-      "descricao": "Pedido realizado"
-    }
-  ],
-  "pedidos": [
+      "descricao": "Pedido finalizado"
+    },
     {
-      "id": 1,
-      "nome": "Maria Clara",
-      "tamanho": {
-        "id": 3,
-        "descricao": "Grande"
-      },
-      "pizza": {
-        "id": 1,
-        "nome": "Margherita Especial",
-        "descricao": "Molho de tomate artesanal, muçarela de búfala, rodelas de tomate fresco, manjericão orgânico e um fio de azeite extra virgem.",
-        "valor": 45,
-        "eh_novidade": false
-      },
-      "bebidas": [
-        {
-          "id": 1,
-          "nome": "Coca Cola Lata 310 ml",
-          "valor": 6
-        }
-      ],
-      "complemento": [
-        {
-          "id": 1,
-          "nome": "Borda Recheada de Catupiry",
-          "valor": 8
-        }
-      ],
-      "statusId": 6
+      "id": 7,
+      "descricao": "Pedido cancelado"
     }
   ],
+  "pedidos": [],
   "opcionais": {
-    "complemento": [
+    "sabores": [
       {
         "id": 1,
-        "nome": "Borda Recheada de Catupiry",
-        "descricao": "Borda tradicional da casa recheada com Catupiry original",
-        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=150",
-        "valor": 8,
-        "eh_novidade": false
+        "nome": "Calabresa Artesanal",
+        "descricao": "Calabresa fatiada, cebola roxa, mussarela e oregano.",
+        "valor": 0
       },
       {
         "id": 2,
-        "nome": "Borda Recheada de Chocolate",
-        "descricao": "Borda doce com chocolate ao leite Nestlé",
-        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=150",
-        "valor": 10,
-        "eh_novidade": true
+        "nome": "Quatro Queijos",
+        "descricao": "Mussarela, parmesao, provolone e catupiry.",
+        "valor": 0
+      },
+      {
+        "id": 3,
+        "nome": "Frango com Catupiry",
+        "descricao": "Frango desfiado temperado, catupiry e milho verde.",
+        "valor": 0
+      },
+      {
+        "id": 4,
+        "nome": "Marguerita",
+        "descricao": "Mussarela, tomate, manjericao fresco e molho artesanal.",
+        "valor": 0
+      }
+    ],
+    "bordas": [
+      {
+        "id": 1,
+        "nome": "Borda de Catupiry",
+        "valor": 8
+      },
+      {
+        "id": 2,
+        "nome": "Borda de Cheddar",
+        "valor": 8
+      },
+      {
+        "id": 3,
+        "nome": "Borda de Chocolate",
+        "valor": 10
       }
     ],
     "bebidas": [
       {
         "id": 1,
-        "nome": "Coca Cola Lata 310 ml",
-        "descricao": "",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431408651d7d30645b9_75_75.jpeg",
-        "valor": 6,
-        "eh_novidade": false
+        "nome": "Refrigerante Cola 2L",
+        "valor": 12
       },
       {
         "id": 2,
-        "nome": "Guaraná Antarctica Lata 350 ml",
-        "descricao": "",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431434651d7d4a1e285_75_75.jpeg",
-        "valor": 6,
-        "eh_novidade": false
+        "nome": "Guarana 2L",
+        "valor": 11
       },
       {
         "id": 3,
-        "nome": "Água Mineral Sem Gás 500 ml",
-        "descricao": "",
-        "foto": "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/1696431455651d7d5fd3661_75_75.jpeg",
-        "valor": 4,
-        "eh_novidade": false
+        "nome": "Suco de Uva 1L",
+        "valor": 14
+      },
+      {
+        "id": 4,
+        "nome": "Agua com Gas 500ml",
+        "valor": 5
       }
     ]
   },
   "menu": {
-    "limitado": [
+    "promocoes": [
       {
-        "id": 1,
-        "nome": "La Farina Suprema",
-        "foto": "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=150",
-        "descricao": "Nossa receita secreta! Molho rústico, muçarela, pepperoni artesanal, cogumelos frescos Paris salteados no vinho branco e finalizado com rúcula fresca.",
-        "valor": 55,
+        "id": 10,
+        "nome": "Combo Familia",
+        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=80",
+        "descricao": "Pizza familia, borda recheada e refrigerante para compartilhar.",
+        "valor": 72,
         "eh_novidade": true
       }
     ],
     "pizzas": [
       {
         "id": 1,
-        "nome": "Margherita Especial",
-        "foto": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=150",
-        "descricao": "Molho de tomate artesanal, muçarela de búfala, rodelas de tomate fresco, manjericão orgânico e um fio de azeite extra virgem.",
-        "valor": 45,
-        "eh_novidade": false
+        "nome": "Pizza Meio-a-Meio",
+        "foto": "https://images.unsplash.com/photo-1594007654729-407eedc4be65?auto=format&fit=crop&w=900&q=80",
+        "descricao": "Monte uma pizza com ate dois sabores da casa e escolha o tamanho ideal.",
+        "valor": 42,
+        "eh_novidade": true
       },
       {
         "id": 2,
-        "nome": "Calabresa Artesanal",
-        "foto": "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=150",
-        "descricao": "Molho de tomate, muçarela, calabresa defumada de alta qualidade e cebola roxa marinada.",
-        "valor": 42,
+        "nome": "Calabresa da Casa",
+        "foto": "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=900&q=80",
+        "descricao": "Calabresa artesanal, cebola roxa, mussarela especial e oregano.",
+        "valor": 38,
         "eh_novidade": false
       },
       {
         "id": 3,
-        "nome": "Quatro Formaggi",
-        "foto": "https://images.unsplash.com/photo-1573821663912-569905455b1c?w=150",
-        "descricao": "Combinação perfeita de muçarela, provolone, gorgonzola premium e catupiry original.",
-        "valor": 48,
+        "nome": "Quatro Queijos",
+        "foto": "https://images.unsplash.com/photo-1548369937-47519962c11a?auto=format&fit=crop&w=900&q=80",
+        "descricao": "Mussarela, parmesao, provolone e catupiry sobre molho de tomate da casa.",
+        "valor": 44,
         "eh_novidade": true
       },
       {
         "id": 4,
-        "nome": "Frango com Catupiry",
-        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=150",
-        "descricao": "Frango desfiado artesanalmente, temperado com ervas finas e uma camada generosa de Catupiry.",
-        "valor": 44,
+        "nome": "Frango Catupiry",
+        "foto": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=80",
+        "descricao": "Frango temperado, catupiry, milho verde e mussarela gratinada.",
+        "valor": 41,
         "eh_novidade": false
       }
     ]
